@@ -1,1 +1,11 @@
 // Button Styles
+.btn {
+  outline: none;
+  border: none;
+}
+
+// setting for button toggle dropdown in small screen
+.navbar-toggler {
+  margin-right: 10px !important;
+  margin-left: auto !important;
+}
