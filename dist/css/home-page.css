@@ -68,6 +68,7 @@ body {
   .table th {
     font-weight: bold !important;
     width: 30%;
+    font-style: italic;
   }
   .table-large-view {
     display: none;
