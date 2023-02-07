@@ -82,208 +82,314 @@
         </div>
       </div>
     </nav>
-    <!-- Large device screen view table -->
-    <section class="container mt-3">
+    <section class="container my-3">
       <h2>Documents</h2>
-      <table
-        class="table-large-view table table-hover table-responsive"
-      >
-        <thead>
-          <tr>
-            <th scope="col">
-              <i class="fa-thin fa-file"></i>
-            </th>
-            <th scope="col">
-              Name <i class="fa-light fa-angle-down icon"></i>
-            </th>
-            <th scope="col">
-              Modified <i class="fa-light fa-angle-down icon"></i>
-            </th>
-            <th scope="col">
-              Modified By <i class="fa-light fa-angle-down icon"></i>
-            </th>
-            <th><i class="fa-light fa-plus"></i> Add column</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td scope="row">
-              <i class="fa-duotone fa-folder-open"></i>
-            </td>
-            <td>CAS</td>
-            <td>April 30</td>
-            <td>Megan Bowen</td>
-            <td></td>
-          </tr>
-
-          <tr>
-            <td scope="row">
-              <img
-                src="src/assets/images/excel-icon.png"
-                alt="Excel icon"
-                class="img"
-              />
-            </td>
-            <td>CoasterAndBargeLoading.xlsx</td>
-            <td>A few seconds ago</td>
-            <td>Aministrator MOD</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td scope="row">
-              <img
-                src="src/assets/images/excel-icon.png"
-                alt="Excel icon"
-                class="img"
-              />
-            </td>
-            <td>RevenueByServices.xlsx</td>
-            <td>A few seconds ago</td>
-            <td>Aministrator MOD</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td scope="row">
-              <img
-                src="src/assets/images/excel-icon.png"
-                alt="Excel icon"
-                class="img"
-              />
-            </td>
-            <td>RevenueByServices2016.xlsx</td>
-            <td>A few seconds ago</td>
-            <td>Aministrator MOD</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td scope="row">
-              <img
-                src="src/assets/images/excel-icon.png"
-                alt="Excel icon"
-                class="img"
-              />
-            </td>
-            <td>RevenueByServices2017.xlsx</td>
-            <td>A few seconds ago</td>
-            <td>Aministrator MOD</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-      <!-- Mobile view table -->
-      <div class="table-small-view flex-column" style="gap: 10px">
-        <table class="table border">
-          <thead>
-            <tr class="table-light">
-              <th>File Type</th>
-              <td class="text-end">
+      <div>
+        <!-- Table section -->
+        <div class="table-container">
+          <!-- Table item -->
+          <div class="table-item">
+            <div class="table-head">
+              <div class="w-10 item">
+                <i class="fa-thin fa-file desktop-view"></i>
+                <span class="mobile-view">File Type</span>
+              </div>
+              <div class="w-35 item">
+                <span
+                  >Name
+                  <i
+                    class="fa-light fa-angle-down icon desktop-view"
+                  ></i
+                ></span>
+              </div>
+              <div class="w-20 item">
+                <span
+                  >Modified
+                  <i
+                    class="fa-light fa-angle-down icon desktop-view"
+                  ></i
+                ></span>
+              </div>
+              <div class="w-20 item">
+                <span
+                  >Modified By
+                  <i
+                    class="fa-light fa-angle-down icon desktop-view"
+                  ></i
+                ></span>
+              </div>
+              <div class="w-20 item desktop-view">
+                <span
+                  ><i
+                    class="fa-regular fa-plus icon purple-icon desktop-view"
+                  ></i>
+                  Add column</span
+                >
+              </div>
+            </div>
+            <div
+              class="d-flex flex-row table-section align-items-center"
+            >
+              <div class="w-10 item text-end">
+                <i class="fa-solid fa-folder"></i>
+              </div>
+              <div class="w-35 item">
+                <span>CAS </span>
+              </div>
+              <div class="w-20 item">
+                <span>April 30</span>
+              </div>
+              <div class="w-20 item">
+                <span>Negan Bowen</span>
+              </div>
+              <div class="w-20 item desktop-view"></div>
+            </div>
+          </div>
+          <!-- Table item -->
+          <div class="table-item">
+            <div class="table-head mobile-view">
+              <div class="w-10 item">
+                <i class="fa-thin fa-file desktop-view"></i>
+                <span class="mobile-view">File Type</span>
+              </div>
+              <div class="w-35 item">
+                <span
+                  >Name
+                  <i
+                    class="fa-light fa-angle-down icon desktop-view"
+                  ></i
+                ></span>
+              </div>
+              <div class="w-20 item">
+                <span
+                  >Modified
+                  <i
+                    class="fa-light fa-angle-down icon desktop-view"
+                  ></i
+                ></span>
+              </div>
+              <div class="w-20 item">
+                <span
+                  >Modified By
+                  <i
+                    class="fa-light fa-angle-down icon desktop-view"
+                  ></i
+                ></span>
+              </div>
+              <div class="w-20 item desktop-view">
+                <span
+                  ><i
+                    class="fa-regular fa-plus icon purple-icon desktop-view"
+                  ></i>
+                  Add column</span
+                >
+              </div>
+            </div>
+            <div
+              class="d-flex flex-row table-section align-items-center"
+            >
+              <div class="w-10 item text-end">
                 <img
                   src="src/assets/images/excel-icon.png"
-                  alt="Excel icon"
-                  class="img mr-auto"
+                  style="width: 18px;"
                 />
-              </td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <td>CAS</td>
-            </tr>
-            <tr>
-              <th>Modified</th>
-              <td>April 30</td>
-            </tr>
-            <tr>
-              <th>Modified By</th>
-              <td>Megan Bowen</td>
-            </tr>
-          </tbody>
-        </table>
-        <table class="table border">
-          <thead>
-            <tr class="table-light">
-              <th>File Type</th>
-              <td class="text-end">
-                <img
-                  src="src/assets/images/excel-icon.png"
-                  alt="Excel icon"
-                  class="img mr-auto"
-                />
-              </td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <td>RevenueByServices</td>
-            </tr>
-            <tr>
-              <th>Modified</th>
-              <td>A few seconds ago</td>
-            </tr>
-            <tr>
-              <th>Modified By</th>
-              <td>Administator MOD</td>
-            </tr>
-          </tbody>
-        </table>
-        <table class="table border">
-          <thead>
-            <tr class="table-light">
-              <th>File Type</th>
-              <td class="text-end">
+              </div>
+              <div class="w-35 item">
+                <span>CoasterAndBargeLoading.xlsx</span>
+              </div>
+              <div class="w-20 item">
+                <span>A few seconds ago</span>
+              </div>
+              <div class="w-20 item">
+                <span>Administator MOD</span>
+              </div>
+              <div class="w-20 item desktop-view"></div>
+            </div>
+          </div>
+          <!-- Table item -->
+          <div class="table-item">
+            <div class="table-head mobile-view">
+              <div class="w-10 item">
+                <i class="fa-thin fa-file desktop-view"></i>
+                <span class="mobile-view">File Type</span>
+              </div>
+              <div class="w-35 item">
+                <span
+                  >Name
+                  <i
+                    class="fa-light fa-angle-down icon desktop-view"
+                  ></i
+                ></span>
+              </div>
+              <div class="w-20 item">
+                <span
+                  >Modified
+                  <i
+                    class="fa-light fa-angle-down icon desktop-view"
+                  ></i
+                ></span>
+              </div>
+              <div class="w-20 item">
+                <span
+                  >Modified By
+                  <i
+                    class="fa-light fa-angle-down icon desktop-view"
+                  ></i
+                ></span>
+              </div>
+              <div class="w-20 item desktop-view">
+                <span
+                  ><i
+                    class="fa-regular fa-plus icon purple-icon desktop-view"
+                  ></i>
+                  Add column</span
+                >
+              </div>
+            </div>
+            <div
+              class="d-flex flex-row table-section align-items-center"
+            >
+              <div class="w-10 item text-end">
                 <img
                   src="src/assets/images/outlook-icon.png"
-                  alt="Excel icon"
-                  class="img mr-auto"
+                  style="width: 18px;"
                 />
-              </td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <td>RevenueByServices2016</td>
-            </tr>
-            <tr>
-              <th>Modified</th>
-              <td>A few seconds ago</td>
-            </tr>
-            <tr>
-              <th>Modified By</th>
-              <td>Administator MOD</td>
-            </tr>
-          </tbody>
-        </table>
-        <table class="table border">
-          <thead>
-            <tr class="table-light">
-              <th>File Type</th>
-              <td class="text-end">
+              </div>
+              <div class="w-35 item">
+                <span>RevenueByServices</span>
+              </div>
+              <div class="w-20 item">
+                <span>A few seconds ago</span>
+              </div>
+              <div class="w-20 item">
+                <span>Administator MOD</span>
+              </div>
+              <div class="w-20 item desktop-view"></div>
+            </div>
+          </div>
+          <!-- Table item -->
+          <div class="table-item">
+            <div class="table-head mobile-view">
+              <div class="w-10 item">
+                <i class="fa-thin fa-file desktop-view"></i>
+                <span class="mobile-view">File Type</span>
+              </div>
+              <div class="w-35 item">
+                <span
+                  >Name
+                  <i
+                    class="fa-light fa-angle-down icon desktop-view"
+                  ></i
+                ></span>
+              </div>
+              <div class="w-20 item">
+                <span
+                  >Modified
+                  <i
+                    class="fa-light fa-angle-down icon desktop-view"
+                  ></i
+                ></span>
+              </div>
+              <div class="w-20 item">
+                <span
+                  >Modified By
+                  <i
+                    class="fa-light fa-angle-down icon desktop-view"
+                  ></i
+                ></span>
+              </div>
+              <div class="w-20 item desktop-view">
+                <span
+                  ><i
+                    class="fa-regular fa-plus icon purple-icon desktop-view"
+                  ></i>
+                  Add column</span
+                >
+              </div>
+            </div>
+            <div
+              class="d-flex flex-row table-section align-items-center"
+            >
+              <div class="w-10 item text-end">
                 <img
                   src="src/assets/images/excel-icon.png"
-                  alt="Excel icon"
-                  class="img mr-auto"
+                  style="width: 18px;"
                 />
-              </td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <td>RevenueByServices2017</td>
-            </tr>
-            <tr>
-              <th>Modified</th>
-              <td>A few seconds ago</td>
-            </tr>
-            <tr>
-              <th>Modified By</th>
-              <td>Administator MOD</td>
-            </tr>
-          </tbody>
-        </table>
+              </div>
+              <div class="w-35 item">
+                <span>RevenueByServices2016</span>
+              </div>
+              <div class="w-20 item">
+                <span>A few seconds ago</span>
+              </div>
+              <div class="w-20 item">
+                <span>Administator MOD</span>
+              </div>
+              <div class="w-20 item desktop-view"></div>
+            </div>
+          </div>
+          <!-- Table item -->
+          <div class="table-item">
+            <div class="table-head mobile-view">
+              <div class="w-10 item">
+                <i class="fa-thin fa-file desktop-view"></i>
+                <span class="mobile-view">File Type</span>
+              </div>
+              <div class="w-35 item">
+                <span
+                  >Name
+                  <i
+                    class="fa-light fa-angle-down icon desktop-view"
+                  ></i
+                ></span>
+              </div>
+              <div class="w-20 item">
+                <span
+                  >Modified
+                  <i
+                    class="fa-light fa-angle-down icon desktop-view"
+                  ></i
+                ></span>
+              </div>
+              <div class="w-20 item">
+                <span
+                  >Modified By
+                  <i
+                    class="fa-light fa-angle-down icon desktop-view"
+                  ></i
+                ></span>
+              </div>
+              <div class="w-20 item desktop-view">
+                <span
+                  ><i
+                    class="fa-regular fa-plus icon purple-icon desktop-view"
+                  ></i>
+                  Add column</span
+                >
+              </div>
+            </div>
+            <div
+              class="d-flex flex-row table-section align-items-center"
+            >
+              <div class="w-10 item text-end">
+                <img
+                  src="src/assets/images/excel-icon.png"
+                  style="width: 18px;"
+                />
+              </div>
+              <div class="w-35 item">
+                <span>RevenueByServices2017</span>
+              </div>
+              <div class="w-20 item">
+                <span>A few seconds ago</span>
+              </div>
+              <div class="w-20 item">
+                <span>Administator MOD</span>
+              </div>
+              <div class="w-20 item desktop-view"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </body>
