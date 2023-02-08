@@ -1,4 +1,7 @@
 // Navigation styles
+.navbar {
+  background-color: $navigation-color;
+}
 
 .nav-link {
   display: flex !important;
@@ -23,14 +26,14 @@
   .navbar {
     padding-left: 10px !important;
 
-    .navbar-collapse {
-      border: 0 !important;
+    .navbar-nav {
+      gap: 10px !important;
+      align-items: center !important;
     }
-  }
 
-  .navbar-nav {
-    gap: 10px !important;
-    align-items: center !important;
+    .navbar-collapse {
+      border: none !important;
+    }
   }
 }
 
@@ -44,10 +47,4 @@
       color: black !important;
     }
   }
-
-  .navbar-collapse {
-    margin-top: 10px !important;
-  }
 }
-
-// }
