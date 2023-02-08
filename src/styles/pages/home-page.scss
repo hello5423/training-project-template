@@ -1,5 +1,5 @@
-// Home page styles
-@import 'master-page';
+// Home page styles@import 'master-page';
+@import './master-page';
 
 * {
   padding: 0;
@@ -17,15 +17,23 @@ body {
   color: $purple-icon-color;
 }
 
+.gray-icon {
+  color: $gray-color;
+}
+
 .table-container {
   display: flex;
   flex-direction: column;
 }
 
+.mobile-view {
+  display: none !important;
+}
+
 .table-item {
   .table-head,
   .table-section {
-    border-bottom: 1px solid $border-color;
+    border-bottom: 2px solid $border-color;
     display: flex;
     flex-direction: row;
 
@@ -38,10 +46,6 @@ body {
     .item:first-child {
       justify-content: end;
     }
-  }
-
-  & .mobile-view {
-    display: none !important;
   }
 }
 
@@ -57,7 +61,34 @@ body {
   width: 35%;
 }
 
+@media screen and (min-width: $mobile-view) {
+  .container-header {
+    font-weight: lighter;
+  }
+
+  .table-item {
+    .table-section .item.w-20 {
+      color: $gray-color;
+    }
+
+    .table-head:first-child {
+      border-bottom: 2px solid $border-color-bold;
+    }
+  }
+}
+
 @media screen and (max-width: $mobile-view) {
+  .mobile-view {
+    display: block !important;
+  }
+
+  .desktop-view {
+    display: none !important;
+  }
+
+  .container-header {
+    font-weight: 400;
+  }
   .table-container {
     flex-direction: column;
     gap: 20px;
@@ -67,7 +98,7 @@ body {
   .table-item {
     display: flex;
     flex-direction: row;
-    border: 1px solid $border-color;
+    border: 1px solid $border-color-bold;
 
     .table-head,
     .table-section {
@@ -92,9 +123,9 @@ body {
 
     .item {
       width: 100%;
-      height: 2em;
-      padding: 5px;
-      border-bottom: 1px solid $border-color;
+      height: 2.5em;
+      padding: 5px !important;
+      border-bottom: 1px solid $border-color-bold;
 
       &:nth-last-child(2) {
         border-bottom: 0;
@@ -103,14 +134,6 @@ body {
       &:first-child {
         background-color: $navigation-color;
       }
-    }
-
-    & .mobile-view {
-      display: block !important;
-    }
-
-    & .desktop-view {
-      display: none !important;
     }
   }
 }
