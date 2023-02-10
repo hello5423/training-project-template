@@ -29,6 +29,14 @@
       crossorigin="anonymous"
       src="src/assets/fontawesome/js/all.js"
     ></script>
+    <script
+      crossorigin="anonymous"
+      src="dist/js/home-page.js"
+    ></script>
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <!-- Navigation bar -->
@@ -50,7 +58,7 @@
       >
         <!-- All the functions in navigation bar -->
         <div class="navbar-nav me-auto mb-sm-0">
-          <a class="nav-link py-2 px-3">
+          <a class="nav-link py-2 px-3" id="new-item">
             <i class="fa-regular fa-plus icon purple-icon"></i>
             <span>New</span>
             <i class="fa-light fa-angle-down icon"></i>
@@ -87,8 +95,8 @@
     </nav>
     <section class="container my-3">
       <h2 class="container-header">Documents</h2>
-      <div class="table-container">
-        <!-- Table item -->
+      <div class="table-container" id="table-container">
+        <!-- Table item
         <div class="table-item">
           <div class="table-head">
             <div class="w-5 item">
@@ -144,7 +152,7 @@
             <div class="w-20 item desktop-view"></div>
           </div>
         </div>
-        <!-- Table item -->
+        Table item
         <div class="table-item">
           <div class="table-head mobile-view">
             <div class="w-5 item">
@@ -202,7 +210,7 @@
             <div class="w-20 item desktop-view"></div>
           </div>
         </div>
-        <!-- Table item -->
+        Table item
         <div class="table-item">
           <div class="table-head mobile-view">
             <div class="w-5 item">
@@ -260,7 +268,7 @@
             <div class="w-20 item desktop-view"></div>
           </div>
         </div>
-        <!-- Table item -->
+        Table item
         <div class="table-item">
           <div class="table-head mobile-view">
             <div class="w-5 item">
@@ -318,7 +326,7 @@
             <div class="w-20 item desktop-view"></div>
           </div>
         </div>
-        <!-- Table item -->
+        Table item
         <div class="table-item">
           <div class="table-head mobile-view">
             <div class="w-5 item">
@@ -375,8 +383,9 @@
             </div>
             <div class="w-20 item desktop-view"></div>
           </div>
-        </div>
+        </div> -->
       </div>
+      <!-- Alert modal -->
     </section>
   </body>
 </html>
