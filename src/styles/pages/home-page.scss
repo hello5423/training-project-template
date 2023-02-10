@@ -64,6 +64,12 @@ body {
     .table-head:first-child {
       border-bottom: 2px solid $border-color-bold;
     }
+
+    &:not(:first-child) {
+      .table-head {
+        display: none;
+      }
+    }
   }
 }
 
@@ -113,7 +119,7 @@ body {
       padding: 5px !important;
       border-bottom: 1px solid $border-color-bold;
 
-      &:nth-last-child(2) {
+      &:last-child {
         border-bottom: 0;
       }
 

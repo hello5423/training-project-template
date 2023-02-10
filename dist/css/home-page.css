@@ -116,6 +116,9 @@ body {
   .table-item .table-head:first-child {
     border-bottom: 2px solid #d1d1d1;
   }
+  .table-item:not(:first-child) .table-head {
+    display: none;
+  }
 }
 @media screen and (max-width: 576px) {
   .desktop-view {
@@ -157,7 +160,7 @@ body {
     padding: 5px !important;
     border-bottom: 1px solid #d1d1d1;
   }
-  .table-item .item:nth-last-child(2) {
+  .table-item .item:last-child {
     border-bottom: 0;
   }
   .table-item .item:first-child {
