@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "name": "file1",
+    "extension": "xlsx",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "createdBy": "user1",
+    "modifiedAt": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "user1"
+  },
+  {
+    "id": 2,
+    "name": "file2",
+    "extension": "txt",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "createdBy": "user1",
+    "modifiedAt": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "user1"
+  },
+  {
+    "id": 3,
+    "name": "file3",
+    "extension": "outlook",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "createdBy": "user1",
+    "modifiedAt": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "user1"
+  },
+  {
+    "id": 4,
+    "name": "file4",
+    "extension": "txt",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "createdBy": "user1",
+    "modifiedAt": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "user1"
+  },
+  {
+    "id": 5,
+    "name": "file5",
+    "extension": "txt",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "createdBy": "user1",
+    "modifiedAt": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "user1"
+  },
+  {
+    "id": 6,
+    "name": "file6",
+    "extension": "txt",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "createdBy": "user1",
+    "modifiedAt": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "user1"
+  },
+  {
+    "id": 7,
+    "name": "file7",
+    "extension": "txt",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "createdBy": "user1",
+    "modifiedAt": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "user1"
+  },
+  {
+    "id": 8,
+    "name": "file8",
+    "extension": "txt",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "createdBy": "user1",
+    "modifiedAt": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "user1"
+  },
+  {
+    "id": 9,
+    "name": "file9",
+    "extension": "txt",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "createdBy": "user1",
+    "modifiedAt": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "user1"
+  },
+  {
+    "id": 10,
+    "name": "file10",
+    "extension": "txt",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "createdBy": "user1",
+    "modifiedAt": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "user1"
+  },
+  {
+    "id": 11,
+    "name": "file11",
+    "extension": "txt",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "createdBy": "user1",
+    "modifiedAt": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "user1"
+  },
+  {
+    "id": 12,
+    "name": "file12",
+    "extension": "txt",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "createdBy": "user1",
+    "modifiedAt": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "user1"
+  },
+  {
+    "id": 13,
+    "name": "file13",
+    "extension": "txt",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "createdBy": "user1",
+    "modifiedAt": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "user1"
+  },
+  {
+    "id": 14,
+    "name": "file14",
+    "extension": "txt",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "createdBy": "user1",
+    "modifiedAt": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "user1"
+  },
+  {
+    "id": 15,
+    "name": "file15",
+    "extension": "txt",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "createdBy": "user1",
+    "modifiedAt": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "user1"
+  }
+]
