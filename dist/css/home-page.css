@@ -118,7 +118,7 @@ body {
   .container-header {
     font-weight: lighter;
   }
-  .table-item .table-section .item.w-20 {
+  .table-item .table-section .item.w-15 {
     color: gray;
   }
   .table-item .table-head:first-child {

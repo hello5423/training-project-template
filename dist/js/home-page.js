@@ -269,7 +269,8 @@ const renderTableItem = item => {
           <span>${item.modifiedBy}</span>
         </div>
         <div class="w-10 item delete-area">
-          <i class="fa-regular fa-trash text-black" id="delete-icon"></i></div>
+          <i class="fa-regular fa-trash text-black" id="delete-icon"></i>
+        </div>
         <div class="w-10 item edit-area">
     <span data-type="${isFile ? 'file' : 'folder'}" data-name="${item.name}" data-extension="${item.extension}" data-id="${item.id}" class="edit-icon">
         <i class="fa-regular fa-pen-to-square"></i></span></div>
@@ -281,7 +282,8 @@ const renderTableItem = item => {
     case undefined:
       {
         const $FOLDER_ITEM = $(tableItem);
-        $FOLDER_ITEM.find('#delete-icon').on('click', () => {
+        $FOLDER_ITEM.find('#delete-icon').on('click', e => {
+          $(e.currentTarget).replaceWith('<div class="spinner-border spinner-border-sm" role="status"><span class="sr-only">Loading...</span></div>');
           _services_folder__WEBPACK_IMPORTED_MODULE_0__["default"].deleteById(indexFolder, item.id).then(() => {
             $FOLDER_ITEM.remove();
           });
@@ -306,7 +308,8 @@ const renderTableItem = item => {
           $('#commonModal').modal('show');
           _modal__WEBPACK_IMPORTED_MODULE_2__["default"].setValueForCommonModal('Edit', 'file', item.name, item.extension, item.id);
         });
-        $FILE_ITEM.find('#delete-icon').on('click', () => {
+        $FILE_ITEM.find('#delete-icon').on('click', e => {
+          $(e.currentTarget).replaceWith('<div class="spinner-border spinner-border-sm" role="status"><span class="sr-only">Loading...</span></div>');
           _services_folder__WEBPACK_IMPORTED_MODULE_0__["default"].removeFile(indexFolder, item.id).then(() => {
             $FILE_ITEM.remove();
           });
@@ -364,6 +367,7 @@ $(document).ready(() => {
     $('.table-container').html(folder !== undefined ? '' : 'Folder not found!');
     $('#container-header-title').html(folder !== undefined ? '' : 'Folder not found!');
     if (folder === undefined) return;
+    // in case user clicks to folder
     $('#backIcon').on('click', () => {
       indexLinkFolder.pop();
       localStorage.setItem('indexLinkFolder', Object(_utilities_helper__WEBPACK_IMPORTED_MODULE_7__["convertToJSONString"])(indexLinkFolder));
@@ -379,6 +383,7 @@ $(document).ready(() => {
       $('.table-container').append($FILE_ITEM);
     });
   });
+  // When user click to new item button
   $('#btnNewItem').on('click', () => {
     $('#btnSubmit').data('type', 'add');
     _components_modal__WEBPACK_IMPORTED_MODULE_5__["default"].setValueForCommonModal('Add', 'folder', '', '', 0);
@@ -394,6 +399,7 @@ $(document).ready(() => {
     const extension = $('#extension').val();
     const id = parseInt($('#id').val(), 10);
     const btnType = $('#btnSubmit').data('type');
+    // handle edit and add
     switch (btnType) {
       case 'add':
         {
@@ -426,6 +432,7 @@ $(document).ready(() => {
         }
       case 'edit':
         {
+          // Edit file
           if (type === 'file') {
             _components_modal__WEBPACK_IMPORTED_MODULE_5__["default"].setLoadingForSubmitButton(true);
             _services_file__WEBPACK_IMPORTED_MODULE_2__["default"].update(indexFolder, {
@@ -464,6 +471,7 @@ $(document).ready(() => {
         }
     }
   });
+  // When click to change type of item
   $('#type').on('change', () => {
     const type = $('#type').val();
     $('#extension').prop('disabled', type === 'folder');
@@ -500,6 +508,7 @@ const convertToJSONString = obj => {
 };
 const convertToDateFormat = input => {
   const date = new Date(input);
+  // convert to format: hh/mm/ss dd/mm/yyyy
   return `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} ${date.getDay()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 };
 
@@ -521,8 +530,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const create = async (indexFolder, file) => {
-  // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  // wait for 1 second to continue doing
+  await new Promise(resolve => setTimeout(resolve, 1000));
   const hasAddedFileToFolder = await _folder__WEBPACK_IMPORTED_MODULE_1__["default"].addFile(indexFolder, file);
   if (!hasAddedFileToFolder) {
     return null;
@@ -533,19 +542,19 @@ const create = async (indexFolder, file) => {
   return file;
 };
 const getAll = async () => {
-  // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  // Wait for 1 seconds to continue doing
+  await new Promise(resolve => setTimeout(resolve, 1000));
   return Object(_scripts_utilities_helper__WEBPACK_IMPORTED_MODULE_0__["convertToJSON"])(localStorage.getItem('files') || '[]');
 };
 const getById = async id => {
-  // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  // Wait for 1 seconds to continue doing
+  await new Promise(resolve => setTimeout(resolve, 1000));
   const files = Object(_scripts_utilities_helper__WEBPACK_IMPORTED_MODULE_0__["convertToJSON"])(localStorage.getItem('files') || '[]');
   return files.find(file => file.id === id);
 };
 const update = async (currentIdFolder, input) => {
-  // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  // Wait for 1 seconds to continue doing
+  await new Promise(resolve => setTimeout(resolve, 1000));
   const folder = Object(_scripts_utilities_helper__WEBPACK_IMPORTED_MODULE_0__["convertToJSON"])(localStorage.getItem('folders') || '[]');
   const currentFolder = folder.find(item => item.id === currentIdFolder);
   if (!currentFolder) {
@@ -581,8 +590,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_utilities_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scripts/utilities/_helper */ "./src/scripts/utilities/_helper.ts");
 
 const create = async (currentFolderIndex, folderItem) => {
-  // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 200));
+  // Wait for 1 seconds to continue doing
+  await new Promise(resolve => setTimeout(resolve, 1000));
   const folders = Object(_scripts_utilities_helper__WEBPACK_IMPORTED_MODULE_0__["convertToJSON"])(localStorage.getItem('folders') || '[]');
   const currentFolder = folders.find(item => item.id === currentFolderIndex);
   if (currentFolder === undefined) {
@@ -594,14 +603,14 @@ const create = async (currentFolderIndex, folderItem) => {
   return true;
 };
 const getById = async id => {
-  // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 200));
+  // Wait for 1 seconds to continue doing
+  await new Promise(resolve => setTimeout(resolve, 1000));
   const folders = Object(_scripts_utilities_helper__WEBPACK_IMPORTED_MODULE_0__["convertToJSON"])(localStorage.getItem('folders') || '[]');
   return folders.find(item => item.id === id);
 };
 const addFile = async (id, file) => {
-  // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 200));
+  // Wait for 1 seconds to continue doing
+  await new Promise(resolve => setTimeout(resolve, 1000));
   const folders = Object(_scripts_utilities_helper__WEBPACK_IMPORTED_MODULE_0__["convertToJSON"])(localStorage.getItem('folders') || '[]');
   const folder = folders.find(item => item.id === id);
   if (folder === undefined) {
@@ -613,7 +622,7 @@ const addFile = async (id, file) => {
 };
 const removeFile = async (idFolder, idFile) => {
   // wait for 1 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 200));
+  await new Promise(resolve => setTimeout(resolve, 1000));
   const folders = Object(_scripts_utilities_helper__WEBPACK_IMPORTED_MODULE_0__["convertToJSON"])(localStorage.getItem('folders') || '[]');
   const folder = folders.find(item => item.id === idFolder);
   if (!folder) {
@@ -629,8 +638,8 @@ const removeFile = async (idFolder, idFile) => {
   return true;
 };
 const update = async (id, input, currentFolderIndex) => {
-  // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 200));
+  // Wait for 1 seconds to continue doing
+  await new Promise(resolve => setTimeout(resolve, 1000));
   const folders = Object(_scripts_utilities_helper__WEBPACK_IMPORTED_MODULE_0__["convertToJSON"])(localStorage.getItem('folders') || '[]');
   const folder = folders.find(item => item.id === id);
   const currentFolder = folders.find(item => item.id === currentFolderIndex);
@@ -647,8 +656,8 @@ const update = async (id, input, currentFolderIndex) => {
   return folder;
 };
 const deleteById = async (currentFolderIndex, folderRemoveId) => {
-  // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 200));
+  // Wait for 1 seconds to continue doing
+  await new Promise(resolve => setTimeout(resolve, 1000));
   const folders = Object(_scripts_utilities_helper__WEBPACK_IMPORTED_MODULE_0__["convertToJSON"])(localStorage.getItem('folders') || '[]');
   const folder = folders.find(item => item.id === currentFolderIndex);
   if (!folder) {
