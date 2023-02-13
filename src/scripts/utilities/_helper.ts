@@ -16,7 +16,7 @@ const convertToJSONString = <T>(obj: T): string => {
 
 const convertToDateFormat = (input: Date): string => {
   const date = new Date(input);
-  return `${date.getDay()}/${date.getMonth() +
+  return `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} ${date.getDay()}/${date.getMonth() +
     1}/${date.getFullYear()}`;
 };
 
