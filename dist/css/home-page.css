@@ -73,6 +73,14 @@ body {
   width: 5%;
 }
 
+.w-10 {
+  width: 10%;
+}
+
+.w-15 {
+  width: 15%;
+}
+
 .w-20 {
   width: 20%;
 }
@@ -155,7 +163,7 @@ body {
     width: 70%;
   }
   .table-item .item {
-    width: 100%;
+    width: 100% !important;
     height: 2.5em;
     padding: 5px !important;
     border-bottom: 1px solid #d1d1d1;

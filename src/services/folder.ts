@@ -9,7 +9,6 @@ const create = async (
   currentFolderIndex: number,
   folderItem: Folder,
 ): Promise<boolean> => {
-  console.log(folderItem);
   // wait for 2 seconds to continue doing
   await new Promise(resolve => setTimeout(resolve, 200));
 
