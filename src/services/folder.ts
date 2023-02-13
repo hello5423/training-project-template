@@ -9,8 +9,8 @@ const create = async (
   currentFolderIndex: number,
   folderItem: Folder,
 ): Promise<boolean> => {
-  // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 200));
+  // Wait for 1 seconds to continue doing
+  await new Promise(resolve => setTimeout(resolve, 1000));
 
   const folders: Folder[] = convertToJSON(
     localStorage.getItem('folders') || '[]',
@@ -34,8 +34,8 @@ const create = async (
 };
 
 const getById = async (id: number) => {
-  // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 200));
+  // Wait for 1 seconds to continue doing
+  await new Promise(resolve => setTimeout(resolve, 1000));
 
   const folders: Folder[] = convertToJSON(
     localStorage.getItem('folders') || '[]',
@@ -45,8 +45,8 @@ const getById = async (id: number) => {
 };
 
 const addFile = async (id: number, file: File) => {
-  // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 200));
+  // Wait for 1 seconds to continue doing
+  await new Promise(resolve => setTimeout(resolve, 1000));
 
   const folders: Folder[] = convertToJSON(
     localStorage.getItem('folders') || '[]',
@@ -67,7 +67,7 @@ const addFile = async (id: number, file: File) => {
 
 const removeFile = async (idFolder: number, idFile: number) => {
   // wait for 1 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 200));
+  await new Promise(resolve => setTimeout(resolve, 1000));
 
   const folders: Folder[] = convertToJSON(
     localStorage.getItem('folders') || '[]',
@@ -99,8 +99,8 @@ const update = async (
   input: Partial<Folder>,
   currentFolderIndex: number,
 ): Promise<Folder | null> => {
-  // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 200));
+  // Wait for 1 seconds to continue doing
+  await new Promise(resolve => setTimeout(resolve, 1000));
 
   const folders: Folder[] = convertToJSON(
     localStorage.getItem('folders') || '[]',
@@ -136,8 +136,8 @@ const deleteById = async (
   currentFolderIndex: number,
   folderRemoveId: number,
 ): Promise<Folder | null> => {
-  // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 200));
+  // Wait for 1 seconds to continue doing
+  await new Promise(resolve => setTimeout(resolve, 1000));
 
   const folders: Folder[] = convertToJSON(
     localStorage.getItem('folders') || '[]',

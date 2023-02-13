@@ -7,8 +7,8 @@ import {
 import folderService from './folder';
 
 const create = async (indexFolder: number, file: File) => {
-  // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  // wait for 1 second to continue doing
+  await new Promise(resolve => setTimeout(resolve, 1000));
 
   const hasAddedFileToFolder = await folderService.addFile(
     indexFolder,
@@ -31,15 +31,15 @@ const create = async (indexFolder: number, file: File) => {
 };
 
 const getAll = async () => {
-  // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  // Wait for 1 seconds to continue doing
+  await new Promise(resolve => setTimeout(resolve, 1000));
 
   return convertToJSON(localStorage.getItem('files') || '[]');
 };
 
 const getById = async (id: number) => {
-  // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  // Wait for 1 seconds to continue doing
+  await new Promise(resolve => setTimeout(resolve, 1000));
 
   const files: File[] = convertToJSON(
     localStorage.getItem('files') || '[]',
@@ -52,8 +52,8 @@ const update = async (
   currentIdFolder: number,
   input: Partial<File>,
 ) => {
-  // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  // Wait for 1 seconds to continue doing
+  await new Promise(resolve => setTimeout(resolve, 1000));
 
   const folder: Folder[] = convertToJSON(
     localStorage.getItem('folders') || '[]',

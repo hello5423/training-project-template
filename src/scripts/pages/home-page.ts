@@ -39,6 +39,7 @@ $(document).ready(() => {
 
     if (folder === undefined) return;
 
+    // in case user clicks to folder
     $('#backIcon').on('click', () => {
       indexLinkFolder.pop();
 
@@ -65,6 +66,7 @@ $(document).ready(() => {
     });
   });
 
+  // When user click to new item button
   $('#btnNewItem').on('click', () => {
     $('#btnSubmit').data('type', 'add');
 
@@ -84,6 +86,7 @@ $(document).ready(() => {
     const id = parseInt($('#id').val(), 10);
     const btnType = $('#btnSubmit').data('type');
 
+    // handle edit and add
     switch (btnType) {
       case 'add': {
         if (type === 'file') {
@@ -125,6 +128,7 @@ $(document).ready(() => {
         break;
       }
       case 'edit': {
+        // Edit file
         if (type === 'file') {
           modalHelper.setLoadingForSubmitButton(true);
 
@@ -181,6 +185,7 @@ $(document).ready(() => {
     }
   });
 
+  // When click to change type of item
   $('#type').on('change', () => {
     const type = $('#type').val();
 
