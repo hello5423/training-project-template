@@ -21,7 +21,6 @@ const create = async (
   );
 
   if (currentFolder === undefined) {
-    alert('Folder not found');
     return false;
   }
 
@@ -42,9 +41,7 @@ const getById = async (id: number) => {
     localStorage.getItem('folders') || '[]',
   );
 
-  const folder = folders.find(item => item.id === id);
-
-  return folder;
+  return folders.find(item => item.id === id);
 };
 
 const addFile = async (id: number, file: File) => {
@@ -58,7 +55,6 @@ const addFile = async (id: number, file: File) => {
   const folder = folders.find(item => item.id === id);
 
   if (folder === undefined) {
-    alert('Folder not found');
     return false;
   }
 
