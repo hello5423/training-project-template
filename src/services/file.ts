@@ -1,4 +1,5 @@
 import { File } from '../models/_file';
+import { Folder } from '../models/_folder';
 import {
   convertToJSON,
   convertToJSONString,
@@ -7,7 +8,7 @@ import folderService from './folder';
 
 const create = async (indexFolder: number, file: File) => {
   // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 1000));
+  await new Promise(resolve => setTimeout(resolve, 2000));
 
   const hasAddedFileToFolder = await folderService.addFile(
     indexFolder,
@@ -47,15 +48,26 @@ const getById = async (id: number) => {
   return files.find(file => file.id === id);
 };
 
-const update = async (id: number, input: Partial<File>) => {
+const update = async (
+  currentIdFolder: number,
+  input: Partial<File>,
+) => {
   // wait for 2 seconds to continue doing
   await new Promise(resolve => setTimeout(resolve, 2000));
 
-  const files: File[] = convertToJSON(
-    localStorage.getItem('files') || '[]',
+  const folder: Folder[] = convertToJSON(
+    localStorage.getItem('folders') || '[]',
   );
 
-  const file = files.find(item => item.id === id);
+  const currentFolder = folder.find(
+    item => item.id === currentIdFolder,
+  );
+
+  if (!currentFolder) {
+    return null;
+  }
+
+  const file = currentFolder.files.find(item => item.id === input.id);
 
   if (!file) {
     return null;
@@ -63,29 +75,16 @@ const update = async (id: number, input: Partial<File>) => {
 
   Object.assign(file, input);
 
-  localStorage.setItem('files', convertToJSONString(files));
+  localStorage.setItem('folders', convertToJSONString(folder));
 
   return file;
 };
-
-// const deleteById = async (indexFolder: number, id: number) => {
-//   // wait for 2 seconds to continue doing
-//   await new Promise(resolve => setTimeout(resolve, 2000));
-
-//   const hasDeletedFileFromFolder = await folderService.removeFile(
-//     indexFolder,
-//     id,
-//   );
-
-//   return hasDeletedFileFromFolder;
-// };
 
 const fileService = {
   create,
   getAll,
   getById,
   update,
-  // deleteById,
 };
 
 export default fileService;

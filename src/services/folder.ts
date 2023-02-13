@@ -9,8 +9,9 @@ const create = async (
   currentFolderIndex: number,
   folderItem: Folder,
 ): Promise<boolean> => {
+  console.log(folderItem);
   // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await new Promise(resolve => setTimeout(resolve, 200));
 
   const folders: Folder[] = convertToJSON(
     localStorage.getItem('folders') || '[]',
@@ -20,7 +21,7 @@ const create = async (
     item => item.id === currentFolderIndex,
   );
 
-  if (!currentFolder) {
+  if (currentFolder === undefined) {
     alert('Folder not found');
     return false;
   }
@@ -36,7 +37,7 @@ const create = async (
 
 const getById = async (id: number) => {
   // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await new Promise(resolve => setTimeout(resolve, 200));
 
   const folders: Folder[] = convertToJSON(
     localStorage.getItem('folders') || '[]',
@@ -49,7 +50,7 @@ const getById = async (id: number) => {
 
 const addFile = async (id: number, file: File) => {
   // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 1000));
+  await new Promise(resolve => setTimeout(resolve, 200));
 
   const folders: Folder[] = convertToJSON(
     localStorage.getItem('folders') || '[]',
@@ -57,7 +58,7 @@ const addFile = async (id: number, file: File) => {
 
   const folder = folders.find(item => item.id === id);
 
-  if (!folder) {
+  if (folder === undefined) {
     alert('Folder not found');
     return false;
   }
@@ -71,7 +72,7 @@ const addFile = async (id: number, file: File) => {
 
 const removeFile = async (idFolder: number, idFile: number) => {
   // wait for 1 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 1000));
+  await new Promise(resolve => setTimeout(resolve, 200));
 
   const folders: Folder[] = convertToJSON(
     localStorage.getItem('folders') || '[]',
@@ -91,7 +92,7 @@ const removeFile = async (idFolder: number, idFile: number) => {
 
   const index = folder.files.indexOf(file);
 
-  folder.files.splice(index, 1);
+  if (index !== -1) folder.files.splice(index, 1);
 
   localStorage.setItem('folders', convertToJSONString(folders));
 
@@ -101,9 +102,10 @@ const removeFile = async (idFolder: number, idFile: number) => {
 const update = async (
   id: number,
   input: Partial<Folder>,
+  currentFolderIndex: number,
 ): Promise<Folder | null> => {
   // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await new Promise(resolve => setTimeout(resolve, 200));
 
   const folders: Folder[] = convertToJSON(
     localStorage.getItem('folders') || '[]',
@@ -111,34 +113,56 @@ const update = async (
 
   const folder = folders.find(item => item.id === id);
 
-  if (!folder) {
+  const currentFolder = folders.find(
+    item => item.id === currentFolderIndex,
+  );
+
+  if (!currentFolder) {
+    return null;
+  }
+
+  const subFolder = currentFolder.subFolders.find(
+    item => item.id === id,
+  );
+
+  if (!folder || !subFolder) {
     return null;
   }
 
   Object.assign(folder, input);
+  Object.assign(subFolder, input);
 
   localStorage.setItem('folders', convertToJSONString(folders));
 
   return folder;
 };
 
-const deleteById = async (id: number): Promise<Folder | null> => {
+const deleteById = async (
+  currentFolderIndex: number,
+  folderRemoveId: number,
+): Promise<Folder | null> => {
   // wait for 2 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await new Promise(resolve => setTimeout(resolve, 200));
 
   const folders: Folder[] = convertToJSON(
     localStorage.getItem('folders') || '[]',
   );
 
-  const folder = folders.find(item => item.id === id);
+  const folder = folders.find(item => item.id === currentFolderIndex);
 
   if (!folder) {
     return null;
   }
 
-  const index = folders.indexOf(folder);
+  const index = folder.subFolders.findIndex(
+    item => item.id === folderRemoveId,
+  );
 
-  folders.splice(index, 1);
+  if (index === -1) {
+    return null;
+  }
+
+  folder.subFolders.splice(index, 1);
 
   localStorage.setItem('folders', convertToJSONString(folders));
 
