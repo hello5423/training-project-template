@@ -19,6 +19,10 @@ body {
 
 @include width(5);
 
+@include width(10);
+
+@include width(15);
+
 @include width(20);
 
 @include width(35);
@@ -114,7 +118,7 @@ body {
     }
 
     .item {
-      width: 100%;
+      width: 100% !important;
       height: 2.5em;
       padding: 5px !important;
       border-bottom: 1px solid $border-color-bold;
