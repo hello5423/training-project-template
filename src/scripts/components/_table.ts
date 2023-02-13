@@ -88,7 +88,8 @@ const renderTableItem = (
           <span>${item.modifiedBy}</span>
         </div>
         <div class="w-10 item delete-area">
-          <i class="fa-regular fa-trash text-black" id="delete-icon"></i></div>
+          <i class="fa-regular fa-trash text-black" id="delete-icon"></i>
+        </div>
         <div class="w-10 item edit-area">
     <span data-type="${isFile ? 'file' : 'folder'}" data-name="${
     item.name
@@ -105,7 +106,11 @@ const renderTableItem = (
     case undefined: {
       const $FOLDER_ITEM = $(tableItem);
 
-      $FOLDER_ITEM.find('#delete-icon').on('click', () => {
+      $FOLDER_ITEM.find('#delete-icon').on('click', (e: Event) => {
+        $(e.currentTarget).replaceWith(
+          '<div class="spinner-border spinner-border-sm" role="status"><span class="sr-only">Loading...</span></div>',
+        );
+
         folderService.deleteById(indexFolder, item.id).then(() => {
           $FOLDER_ITEM.remove();
         });
@@ -150,7 +155,10 @@ const renderTableItem = (
         );
       });
 
-      $FILE_ITEM.find('#delete-icon').on('click', () => {
+      $FILE_ITEM.find('#delete-icon').on('click', (e: Event) => {
+        $(e.currentTarget).replaceWith(
+          '<div class="spinner-border spinner-border-sm" role="status"><span class="sr-only">Loading...</span></div>',
+        );
         folderService.removeFile(indexFolder, item.id).then(() => {
           $FILE_ITEM.remove();
         });
