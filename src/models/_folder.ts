@@ -1,7 +1,7 @@
 import { File } from './_file';
 
 export interface Folder {
-  id: number;
+  id: string;
   name: string;
   files: File[];
   subFolders: Folder[];
@@ -15,7 +15,7 @@ export const FolderGenerated = (
   folderInput: Partial<Folder>,
 ): Folder => {
   return {
-    id: folderInput.id || Math.floor(Math.random() * 10000),
+    id: folderInput.id || '',
     name: folderInput.name || '',
     files: folderInput.files || [],
     subFolders: folderInput.subFolders || [],

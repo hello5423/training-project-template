@@ -1,5 +1,5 @@
 export interface File {
-  id: number;
+  id: string;
   name: string;
   extension: string;
   createdAt: Date;
@@ -10,7 +10,7 @@ export interface File {
 
 export const FileGenerated = (fileInput: Partial<File>): File => {
   return {
-    id: fileInput.id || Math.floor(Math.random() * 10000),
+    id: fileInput.id || '',
     name: fileInput.name || '',
     extension: fileInput.extension || '',
     createdAt: fileInput.createdAt || new Date(),
