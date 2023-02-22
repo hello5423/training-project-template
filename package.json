@@ -73,6 +73,7 @@
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "axios": "^1.3.3",
     "bootstrap": "^4.5.0",
     "eslint-config-airbnb-typescript": "^9.0.0",
     "feather-icons": "^4.28.0",
