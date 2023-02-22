@@ -68,14 +68,19 @@
             <span>New</span>
             <i class="fa-light fa-angle-down icon"></i>
           </a>
-          <a class="nav-link py-2 px-3">
-            <i
-              class="fa-light fa-arrow-up-to-line icon purple-icon"
-            ></i>
-            <span>Upload</span>
-            <i class="fa-light fa-angle-down icon"></i>
-          </a>
-          <a class="nav-link py-2 px-3">
+          <div class="nav-link py-2 px-3">
+            <label for="file-input">
+              <a>
+                <i
+                  class="fa-light fa-arrow-up-to-line icon purple-icon"
+                ></i>
+                <span>Upload</span>
+                <i class="fa-light fa-angle-down icon"></i>
+              </a>
+            </label>
+            <input class="d-none" id="file-input" type="file" />
+          </div>
+          <a class="nav-link py-2 px-3" id="syncBtn">
             <i class="fa-light fa-arrows-rotate icon purple-icon"></i>
             <span>Sync</span>
           </a>
@@ -92,6 +97,12 @@
             <span>Flow</span>
             <i class="fa-light fa-angle-down icon desktop-view"></i>
           </a>
+          <a class="nav-link py-2 px-3" id="logoutBtn">
+            <i
+              class="fa-sharp fa-regular fa-arrow-right-from-bracket icon purple-icon"
+            ></i>
+            Logout
+          </a>
           <a class="nav-link py-2 px-3">
             <i class="fa-light fa-ellipsis"></i>
           </a>
@@ -99,6 +110,7 @@
       </div>
     </nav>
     <section class="container my-3">
+      <h3>Hello, <span id="username"></span></h3>
       <h2 class="container-header">
         <span id="backIcon"
           ><i class="fa-light fa-arrow-left"></i
@@ -108,7 +120,7 @@
       <div class="table-container" id="table-container"></div>
     </section>
 
-    <!-- Add item modal -->
+    <!-- Edit and add modal -->
     <div
       aria-hidden="true"
       aria-labelledby="commonModalLabel"
@@ -177,6 +189,32 @@
               Submit
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+    <!-- Toast for notify -->
+    <div
+      class="position-fixed bottom-0 end-0 p-3"
+      style="z-index: 11"
+    >
+      <div
+        aria-atomic="true"
+        aria-live="assertive"
+        class="toast hide"
+        id="notifyToast"
+        role="alert"
+      >
+        <div class="toast-header">
+          <strong class="me-auto">Notification</strong>
+          <button
+            aria-label="Close"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            type="button"
+          ></button>
+        </div>
+        <div class="toast-body" id="toast-message">
+          Hello, world! This is a toast message.
         </div>
       </div>
     </div>
