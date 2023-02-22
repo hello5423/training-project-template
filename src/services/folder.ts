@@ -1,165 +1,98 @@
+import axiosClient from '../config/_axios';
 import { File } from '../models/_file';
 import { Folder } from '../models/_folder';
-import {
-  convertToJSON,
-  convertToJSONString,
-} from '../scripts/utilities/_helper';
 
 const create = async (
-  currentFolderIndex: number,
-  folderItem: Folder,
-): Promise<boolean> => {
+  currentFolderIndex: string,
+  folderItem: Partial<Folder>,
+): Promise<Folder> => {
   // Wait for 1 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 1000));
-
-  const folders: Folder[] = convertToJSON(
-    localStorage.getItem('folders') || '[]',
+  const response = await axiosClient.post(
+    `/Folder`,
+    {
+      name: folderItem.name,
+      modifiedBy: folderItem.modifiedBy,
+      parentId: currentFolderIndex,
+    },
+    {
+      withCredentials: true,
+    },
   );
 
-  const currentFolder = folders.find(
-    item => item.id === currentFolderIndex,
-  );
+  return response.data;
+};
 
-  if (currentFolder === undefined) {
-    return false;
+const getById = async (id: string) => {
+  // Wait for 1 seconds to continue doing
+  try {
+    const response = await axiosClient.get(`/Folder/${id}`, {
+      withCredentials: true,
+    });
+
+    const folder: Folder = response.data;
+
+    return folder;
+  } catch (error) {
+    return null;
   }
-
-  folders.push(folderItem);
-
-  currentFolder.subFolders.push(folderItem);
-
-  localStorage.setItem('folders', convertToJSONString(folders));
-
-  return true;
 };
 
-const getById = async (id: number) => {
+const addFile = async (id: string, file: Partial<File>) => {
   // Wait for 1 seconds to continue doing
   await new Promise(resolve => setTimeout(resolve, 1000));
 
-  const folders: Folder[] = convertToJSON(
-    localStorage.getItem('folders') || '[]',
-  );
+  const response = await axiosClient.post(`/File`, {
+    name: file.name,
+    extension: file.extension,
+    folderId: id,
+    modifiedBy: file.modifiedBy,
+  });
 
-  return folders.find(item => item.id === id);
+  return response.data;
 };
 
-const addFile = async (id: number, file: File) => {
-  // Wait for 1 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 1000));
-
-  const folders: Folder[] = convertToJSON(
-    localStorage.getItem('folders') || '[]',
-  );
-
-  const folder = folders.find(item => item.id === id);
-
-  if (folder === undefined) {
-    return false;
-  }
-
-  folder.files.push(file);
-
-  localStorage.setItem('folders', convertToJSONString(folders));
-
-  return true;
-};
-
-const removeFile = async (idFolder: number, idFile: number) => {
+const removeFile = async (idFile: string) => {
   // wait for 1 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 1000));
 
-  const folders: Folder[] = convertToJSON(
-    localStorage.getItem('folders') || '[]',
-  );
+  const response = await axiosClient.delete(`/File/${idFile}`);
 
-  const folder = folders.find(item => item.id === idFolder);
-
-  if (!folder) {
-    return false;
-  }
-
-  const file = folder.files.find(item => item.id === idFile);
+  const file = response.data;
 
   if (!file) {
-    return false;
+    return null;
   }
-
-  const index = folder.files.indexOf(file);
-
-  if (index !== -1) folder.files.splice(index, 1);
-
-  localStorage.setItem('folders', convertToJSONString(folders));
 
   return true;
 };
 
 const update = async (
-  id: number,
+  id: string,
   input: Partial<Folder>,
-  currentFolderIndex: number,
 ): Promise<Folder | null> => {
   // Wait for 1 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 1000));
+  const response = await axiosClient.put(`/Folder/${id}`, {
+    name: input.name,
+    modifiedBy: input.modifiedBy || '',
+  });
 
-  const folders: Folder[] = convertToJSON(
-    localStorage.getItem('folders') || '[]',
-  );
-
-  const folder = folders.find(item => item.id === id);
-
-  const currentFolder = folders.find(
-    item => item.id === currentFolderIndex,
-  );
-
-  if (!currentFolder) {
-    return null;
-  }
-
-  const subFolder = currentFolder.subFolders.find(
-    item => item.id === id,
-  );
-
-  if (!folder || !subFolder) {
-    return null;
-  }
-
-  Object.assign(folder, input);
-  Object.assign(subFolder, input);
-
-  localStorage.setItem('folders', convertToJSONString(folders));
-
-  return folder;
-};
-
-const deleteById = async (
-  currentFolderIndex: number,
-  folderRemoveId: number,
-): Promise<Folder | null> => {
-  // Wait for 1 seconds to continue doing
-  await new Promise(resolve => setTimeout(resolve, 1000));
-
-  const folders: Folder[] = convertToJSON(
-    localStorage.getItem('folders') || '[]',
-  );
-
-  const folder = folders.find(item => item.id === currentFolderIndex);
+  const folder = response.data;
 
   if (!folder) {
     return null;
   }
 
-  const index = folder.subFolders.findIndex(
-    item => item.id === folderRemoveId,
+  return folder;
+};
+
+const deleteById = async (
+  folderRemoveId: string,
+): Promise<Folder | null> => {
+  // Wait for 1 seconds to continue doing
+  const response = await axiosClient.delete(
+    `/Folder/${folderRemoveId}`,
   );
 
-  if (index === -1) {
-    return null;
-  }
-
-  folder.subFolders.splice(index, 1);
-
-  localStorage.setItem('folders', convertToJSONString(folders));
+  const folder = response.data;
 
   return folder;
 };
