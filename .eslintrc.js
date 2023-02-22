@@ -8,7 +8,12 @@ module.exports = {
     window: true,
     fetch: true,
   },
-  ignorePatterns: ['/dist/js/**.js', 'webpack.config.js'],
+  ignorePatterns: [
+    '/dist/js/**.js',
+    'webpack.config.js',
+    '*.js',
+    'node_modules',
+  ],
   rules: {
     'prettier/prettier': ['error'],
     'linebreak-style': [
