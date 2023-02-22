@@ -18,7 +18,7 @@ const setValueForCommonModal = (
   type: string,
   name: string,
   extension?: string,
-  id?: number,
+  id?: string,
 ) => {
   $('#commonModal').modal('show');
 

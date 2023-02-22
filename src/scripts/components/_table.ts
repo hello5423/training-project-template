@@ -9,11 +9,10 @@ import modalHelper from './_modal';
 
 declare var $: any;
 
-const indexLinkFolder: number[] = JSON.parse(
-  localStorage.getItem('indexLinkFolder') || '[1]',
+const indexLinkFolder: string[] = JSON.parse(
+  localStorage.getItem('indexLinkFolder') ||
+    '["D0D0AADD-B674-4434-09F0-08DB12FD2CFE"]',
 );
-
-const indexFolder = indexLinkFolder[indexLinkFolder.length - 1] || 1;
 
 const renderTableItem = (
   item: (Folder | File) & {
@@ -78,8 +77,11 @@ const renderTableItem = (
           <i class="fa-solid fa-${isFile ? 'file' : 'folder'}"></i>
         </div>
         <div class="w-25 item">
-          <span class="nextFolder">${item.name +
-            (item.extension ? `.${item.extension}` : '')}</span>
+          <span class="nextFolder"
+                title="${item.name +
+                  (item.extension ? `.${item.extension}` : '')}"
+                data-name="${item.name}">${item.name +
+    (item.extension ? `.${item.extension}` : '')}</span>
         </div>
         <div class="w-15 item">
           <span>${convertToDateFormat(item.modifiedAt)}</span>
@@ -91,11 +93,9 @@ const renderTableItem = (
           <i class="fa-regular fa-trash text-black" id="delete-icon"></i>
         </div>
         <div class="w-10 item edit-area">
-    <span data-type="${isFile ? 'file' : 'folder'}" data-name="${
-    item.name
-  }" data-extension="${item.extension}" data-id="${
-    item.id
-  }" class="edit-icon">
+    <span data-type="${isFile ? 'file' : 'folder'}" data-extension="${
+    item.extension
+  }" data-id="${item.id}" class="edit-icon">
         <i class="fa-regular fa-pen-to-square"></i></span></div>
         <div class="w-20 item desktop-view"></div>
       </div>
@@ -111,7 +111,7 @@ const renderTableItem = (
           '<div class="spinner-border spinner-border-sm" role="status"><span class="sr-only">Loading...</span></div>',
         );
 
-        folderService.deleteById(indexFolder, item.id).then(() => {
+        folderService.deleteById(item.id).then(() => {
           $FOLDER_ITEM.remove();
         });
       });
@@ -159,7 +159,7 @@ const renderTableItem = (
         $(e.currentTarget).replaceWith(
           '<div class="spinner-border spinner-border-sm" role="status"><span class="sr-only">Loading...</span></div>',
         );
-        folderService.removeFile(indexFolder, item.id).then(() => {
+        folderService.removeFile(item.id).then(() => {
           $FILE_ITEM.remove();
         });
       });
